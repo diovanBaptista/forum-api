@@ -6,6 +6,7 @@ import { DatabaseModule } from 'src/database/database.module';
 @Module({
   imports: [DatabaseModule], // 👈 ISSO É OBRIGATÓRIO
   controllers: [UserController],
-  providers: [UserService]
+  providers: [UserService],
+  exports: [UserService],
 })
 export class UserModule {}
