@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { UserModel } from 'generated/prisma/models';
 import { UserService } from './user.service';
 import { Prisma } from 'generated/prisma/client';
@@ -32,7 +32,7 @@ export class UserController {
   }
   
   @UseGuards(AuthGuard)
-  @Put()
+  @Patch(':id')
   async updatUser(
     @Body() userData: Prisma.UserUpdateInput,
     @Param('id') id : string
