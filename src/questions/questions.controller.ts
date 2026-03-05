@@ -11,7 +11,9 @@ export class QuestionsController {
   @Post()
   @UseGuards(AuthGuard)
   create(@Body() createQuestionDto: CreateQuestionDto, @Request() req: any) {
-    return this.questionsService.create(createQuestionDto, req.sub);
+    console.log(createQuestionDto)
+    console.log(req.sub)
+    return this.questionsService.create(createQuestionDto, req);
   }
 
   @Get()
