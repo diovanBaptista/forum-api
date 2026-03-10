@@ -5,9 +5,11 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { UserModule } from 'src/user/user.module';
 import { AuthGuard } from './auth.guard';
+import { DatabaseModule } from 'src/database/database.module';
 
 @Module({
   imports: [
+    DatabaseModule,
     forwardRef(() => UserModule),
     JwtModule.registerAsync({
       imports: [ConfigModule],

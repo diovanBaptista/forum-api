@@ -15,7 +15,16 @@ export class QuestionsService {
   }
 
   async findAll() {
-    return await this.prismaService.questions.findMany();
+    return await this.prismaService.questions.findMany({
+      include: {answers: true,
+        user: {
+        select: {
+          name: true,
+          email: true
+        },
+      },
+    },
+    });
   }
 
   async findOne(id: number) {
